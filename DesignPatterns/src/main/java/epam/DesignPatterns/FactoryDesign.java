@@ -34,7 +34,7 @@ class Bike extends Vehicle {
   }
 }
 
-class VehicleFactory {
+class VehiclesFactory {
   public static Vehicle getInstance(String type, int wheel) {
     if(type == "car") {
       return new Car(wheel);
@@ -49,10 +49,10 @@ class VehicleFactory {
 public class FactoryDesign {
 
   public static void main(String[] args) {
-    Vehicle car = VehicleFactory.getInstance("car", 4);
+    Vehicle car = VehiclesFactory.getInstance("car", 4);
     System.out.println(car);
     
-    Vehicle bike = VehicleFactory.getInstance("bike", 2);
+    Vehicle bike = VehiclesFactory.getInstance("bike", 2);
     System.out.println(bike);
   }
 
