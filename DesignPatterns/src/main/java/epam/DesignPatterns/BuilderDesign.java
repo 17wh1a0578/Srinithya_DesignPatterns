@@ -1,11 +1,10 @@
 package epam.DesignPatterns;
 
-class Vehicle2 {
-  //required parameter
+class Patternvehicle {
+ 
   private String engine;
   private int wheel;
   
-  //optional parameter
   private int airbags;
   
   public String getEngine() {
@@ -20,29 +19,29 @@ class Vehicle2 {
     return this.airbags;
   }
   
-  private Vehicle2(VehicleBuilder builder) {
+  private Patternvehicle(Vehicle builder) {
     this.engine = builder.engine;
     this.wheel = builder.wheel;
     this.airbags = builder.airbags;
   }
   
-  public static class VehicleBuilder {
+  public static class Vehicle {
     private String engine;
     private int wheel;
     
     private int airbags;
     
-    public VehicleBuilder(String engine, int wheel) {
+    public Vehicle(String engine, int wheel) {
       this.engine = engine;
       this.wheel = wheel;
     }
     
-    public VehicleBuilder setAirbags(int airbags) {
+    public Vehicle setAirbags(int airbags) {
       this.airbags = airbags;
       return this;
     }
     
-    public Vehicle2 build() {
+    public Patternvehicle build() {
       return new Vehicle2(this);
     }
   }
@@ -51,8 +50,8 @@ class Vehicle2 {
 public class BuilderDesign {
   
   public static void main(String[] args) {
-    Vehicle2 car = new Vehicle2.VehicleBuilder("1500cc", 4).setAirbags(4).build();
-    Vehicle2 bike = new Vehicle2.VehicleBuilder("250cc", 2).build();
+    Patternvehicle car = new Patternvehicle.Vehicle("1500cc", 4).setAirbags(4).build();
+  Patternvehicle bike = new Patternvehicle.Vehicle("250cc", 2).build();
     
     System.out.println(car.getEngine());
     System.out.println(car.getWheel());
