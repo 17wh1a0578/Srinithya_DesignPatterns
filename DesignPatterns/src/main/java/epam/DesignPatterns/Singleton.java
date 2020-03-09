@@ -9,26 +9,26 @@ class SingletonEagar {
 	}
 }
 
-class SingletonE {
+class singleton {
 	private static Singleton instance; 
-	private SingletonE(){}  
+	private singleton(){}  
 	public static Singleton getInstance() {
 		if(instance == null) {
-			instance = new Singleton();
+			instance = new singleton();
 		}
 	    
 	    return instance;
 	}
 }
 
-class SingletonSynchronizedMethod {
-	private static SingletonSynchronizedMethod instance; 
+class SingletonSynchronized {
+	private static SingletonSynchronized instance; 
 	  
-	private SingletonSynchronizedMethod(){}
+	private SingletonSynchronized(){}
 	  
-	public static synchronized SingletonSynchronizedMethod getInstance() {
+	public static synchronized SingletonSynchronized getInstance() {
 		if(instance == null) {
-			instance = new SingletonSynchronizedMethod();
+			instance = new SingletonSynchronized();
 	    }
 	    return instance;
 	}
