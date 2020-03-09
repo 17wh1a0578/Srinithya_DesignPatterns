@@ -3,13 +3,13 @@ package epam.DesignPatterns;
 import java.util.ArrayList;
 import java.util.List;
 
-interface Subject {
-  void register(Observer obj);
-  void unregister(Observer obj);
-  void notifyObservers();
+interface Pattern {
+  void var(Observer obj);
+  void unvar(Observer obj);
+  void x();
 }
 
-class DeliveryData implements Subject {
+class DeliveryData implements Pattern {
 
   private List<Observer> observers;
   private String location;
@@ -18,15 +18,15 @@ class DeliveryData implements Subject {
     this.observers = new ArrayList<Observer>();
   }
   
-  public void register(Observer obj) {
+  public void var(Observer obj) {
     observers.add(obj);
   }
 
-  public void unregister(Observer obj) {
+  public void unvar(Observer obj) {
       observers.remove(obj);
   }
 
-  public void notifyObservers() {
+  public void x() {
     for(Observer obj : observers) {
       obj.update(location);
     }
@@ -43,12 +43,12 @@ class DeliveryData implements Subject {
 }
 
 
-interface Observer {
+interface y {
   public void update(String location);
 }
 
 
-class Seller implements Observer {
+class Seller implements y {
   private String location;
   
   public void update(String location) {
@@ -61,7 +61,7 @@ class Seller implements Observer {
   }
 }
 
-class User implements Observer {
+class User implements y {
   private String location;
   
   public void update(String location) {
@@ -74,7 +74,7 @@ class User implements Observer {
   }
 }
 
-class DeliveryWarehouseCenter implements Observer {
+class DeliveryWarehouseCenter implements y {
   private String location;
   
   public void update(String location) {
@@ -92,17 +92,17 @@ public class ObserverDesign {
   public static void main(String[] args) {
     DeliveryData topic = new DeliveryData();
     
-    Observer obj1 = new Seller();
-    Observer obj2 = new User();
-    Observer obj3 = new DeliveryWarehouseCenter();
+    y obj1 = new Seller();
+    y obj2 = new User();
+    y obj3 = new DeliveryWarehouseCenter();
     
-    topic.register(obj1);
-    topic.register(obj2);
-    topic.register(obj3);
+    topic.var(obj1);
+    topic.var(obj2);
+    topic.var(obj3);
     
     topic.locationChanged();
     
-    topic.unregister(obj3);
+    topic.unvar(obj3);
     
     System.out.println();
     topic.locationChanged();
